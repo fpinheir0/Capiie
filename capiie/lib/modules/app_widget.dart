@@ -1,4 +1,5 @@
 import 'package:capiie/modules/home/home_page.dart';
+import 'package:capiie/modules/login/login_page.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {
@@ -6,10 +7,13 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: LoginPage(),
       theme: ThemeData.dark(),
       initialRoute: "/login",
-      routes: {"/home": (context) => HomePage()},
+      routes: {
+        "/home": (context) => HomePage(),
+        "/login": (context) => LoginPage()
+      },
     );
   }
 }
