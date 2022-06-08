@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
             Container(
               width: 200,
               height: 200,
-              child: Image.asset("assets/capiie.png"),
+              child: Image.asset("/assets/capiie.png"),
             ),
             TextFormField(
               decoration: InputDecoration(labelText: "Nome"),
