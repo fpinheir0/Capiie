@@ -6,17 +6,20 @@
     "configurations": [
         {
             "name": "capiie",
+            "cwd": "capiie",
             "request": "launch",
             "type": "dart"
         },
         {
             "name": "capiie (profile mode)",
+            "cwd": "capiie",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
             "name": "capiie (release mode)",
+            "cwd": "capiie",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

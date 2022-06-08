@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
+class HomeRobot extends StatelessWidget {
+  HomeRobot({Key? key}) : super(key: key);
+
+  static const String _tituloAppbar = 'Robot';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(_tituloAppbar),
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 32),
         child: Form(

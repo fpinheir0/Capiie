@@ -1,4 +1,3 @@
-import 'package:capiie/modules/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -10,16 +9,38 @@ class LoginPage extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         appBar: AppBar(title: Text(_title)),
         body: Padding(
-          padding: EdgeInsets.only(top: 300, left: 8),
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: Color.fromARGB(255, 134, 96, 248),
-              onSurface: Colors.green,
-              elevation: 50,
-              shadowColor: Color.fromARGB(255, 72, 186, 139),
+          padding: EdgeInsets.symmetric(horizontal: 100),
+          child: Form(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 200,
+                  height: 200,
+                  child: Image.asset("assets/capiie.png"),
+                ),
+                Padding(padding: EdgeInsets.only(top: 6)),
+                SizedBox(
+                  height: 32,
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 134, 96, 248),
+                    minimumSize: Size(200, 50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(5),
+                      ),
+                    ),
+                    onSurface: Colors.green,
+                    elevation: 20,
+                    shadowColor: Color.fromARGB(255, 72, 186, 139),
+                  ),
+                  child: Text('Bora criar o cartão ?'),
+                  onPressed: () => Navigator.pushNamed(context, "/robot"),
+                ),
+              ],
             ),
-            child: Text('CLIQUE PARA COMEÇAR A CRIAR O CARTÃO VIRTUAL'),
-            onPressed: () => Navigator.pushNamed(context, "/home"),
           ),
         ),
       );
