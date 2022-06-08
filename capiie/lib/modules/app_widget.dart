@@ -1,6 +1,6 @@
 import 'package:capiie/modules/home/home_page.dart';
-import 'package:capiie/modules/home/home_robo.dart';
 import 'package:capiie/modules/login/login_page.dart';
+import 'package:capiie/pages/Page1.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {
@@ -14,7 +14,7 @@ class AppWidget extends StatelessWidget {
       routes: {
         "/home": (context) => HomePage(),
         "/login": (context) => LoginPage(),
-        "/robot": (context) => HomeRobot()
+        "/robot": (context) => Page1()
       },
     );
   }
