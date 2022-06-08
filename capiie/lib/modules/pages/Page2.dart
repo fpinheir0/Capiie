@@ -1,4 +1,4 @@
-import 'package:capiie/pages/Page3.dart';
+import 'package:capiie/modules/pages/Page3.dart';
 import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';

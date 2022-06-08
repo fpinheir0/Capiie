@@ -1,4 +1,4 @@
-import 'package:capiie/pages/Page2.dart';
+import 'package:capiie/modules/pages/Page2.dart';
 import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -61,7 +61,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                         child: CircleAvatar(
                           backgroundColor: Colors.grey[100],
                           child: Image.asset(
-                            'assets/images/logo.png',
+                            'assets/images/capiie.png',
                             width: 45,
                           ),
                           radius: 30.0,
