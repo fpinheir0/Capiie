@@ -15,11 +15,11 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   int _currentSliderValue = 2;
   List state = [
-    {'state': '1.svg', 'text': 'REALLY TERRIBLE'},
-    {'state': '2.svg', 'text': 'SOMEWHAT BAD'},
-    {'state': '3.svg', 'text': 'COMPLETELY OKAY'},
-    {'state': '4.svg', 'text': 'PRETTY GOOD'},
-    {'state': '5.svg', 'text': 'SUPER AWESOME'}
+    {'state': '1.svg', 'text': 'REALMENTE TERRÍVEL'},
+    {'state': '2.svg', 'text': 'UM POUCO RUIM'},
+    {'state': '3.svg', 'text': 'COMPLETAMENTE OK'},
+    {'state': '4.svg', 'text': 'MUITO BOM'},
+    {'state': '5.svg', 'text': 'SUPER INCRÍVEL'}
   ];
   @override
   void initState() {
@@ -73,7 +73,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                 padding: const EdgeInsets.only(right: 20.0, left: 20),
                 child: DelayedAnimation(
                     child: Text(
-                      "Alright, Segun - how are you doing right now",
+                      "Tudo bem, como você está agora",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
