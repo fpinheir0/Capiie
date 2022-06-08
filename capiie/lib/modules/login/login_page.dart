@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget {
                 Container(
                   width: 200,
                   height: 200,
-                  child: Image.asset("assets/capiie.png"),
+                  child: Image.asset("assets/images/capiie.png"),
                 ),
                 Padding(padding: EdgeInsets.only(top: 6)),
                 SizedBox(
