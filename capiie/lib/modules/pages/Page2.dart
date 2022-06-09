@@ -1,4 +1,4 @@
-import 'package:capiie/modules/pages/Page3.dart';
+import 'package:capiie/modules/login/login_page.dart';
 import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -420,7 +420,7 @@ class _page2State extends State<page2> {
               ),
             ),
           ),
-          page3(),
+          LoginPage(),
           Container(),
           Container(),
           Container(),

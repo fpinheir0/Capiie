@@ -73,14 +73,14 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                 padding: const EdgeInsets.only(right: 20.0, left: 20),
                 child: DelayedAnimation(
                     child: Text(
-                      "Tudo bem, como você está agora",
+                      "Olá Humano, meu nome é Capiie e vou te ajudar durante o processo de criação do nosso cartão virtual ",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 24.0,
                           color: Colors.white),
                     ),
-                    delay: delayedAmount + 1000,
+                    delay: delayedAmount + 2000,
                     direction: 'up'),
               ),
               SizedBox(
@@ -130,7 +130,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                   delay: delayedAmount + 1700,
                   direction: 'up'),
               SizedBox(
-                height: 200.0,
+                height: 100.0,
               ),
               DelayedAnimation(
                   child: GestureDetector(
