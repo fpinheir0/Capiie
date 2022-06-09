@@ -21,6 +21,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
     {'state': '4.svg', 'text': 'MUITO BOM'},
     {'state': '5.svg', 'text': 'SUPER INCRÍVEL'}
   ];
+
   @override
   void initState() {
     _controller = AnimationController(
@@ -73,18 +74,35 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                 padding: const EdgeInsets.only(right: 20.0, left: 20),
                 child: DelayedAnimation(
                     child: Text(
-                      "Olá Humano, meu nome é Capiie e vou te ajudar durante o processo de criação do nosso cartão virtual ",
+                      "Olá Humano, meu nome é Capiie e vou te ajudar durante o processo de criação do nosso cartão virtual",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 24.0,
+                          fontSize: 20.0,
                           color: Colors.white),
                     ),
                     delay: delayedAmount + 2000,
                     direction: 'up'),
               ),
               SizedBox(
-                height: 150.0,
+                height: 70.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: DelayedAnimation(
+                    child: Text(
+                      "Me diga como você está se sentindo?",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.0,
+                          color: Colors.white),
+                    ),
+                    delay: delayedAmount + 5000,
+                    direction: 'up'),
+              ),
+              SizedBox(
+                height: 40.0,
               ),
               DelayedAnimation(
                   child: Column(
@@ -95,7 +113,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                           width: 80,
                           semanticsLabel: 'A red up arrow'),
                       SizedBox(
-                        height: 20.0,
+                        height: 15.0,
                       ),
                       Text(
                         state[_currentSliderValue]['text'],
@@ -107,10 +125,10 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                       ),
                     ],
                   ),
-                  delay: delayedAmount + 1500,
+                  delay: delayedAmount + 7000,
                   direction: 'up'),
               SizedBox(
-                height: 20.0,
+                height: 50.0,
               ),
               DelayedAnimation(
                   child: Slider(
@@ -127,10 +145,10 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                       });
                     },
                   ),
-                  delay: delayedAmount + 1700,
+                  delay: delayedAmount + 7000,
                   direction: 'up'),
               SizedBox(
-                height: 100.0,
+                height: 80.0,
               ),
               DelayedAnimation(
                   child: GestureDetector(
@@ -140,7 +158,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                     },
                     child: _animatedButtonUI,
                   ),
-                  delay: delayedAmount + 2300,
+                  delay: delayedAmount + 8000,
                   direction: 'up'),
             ],
           ),
