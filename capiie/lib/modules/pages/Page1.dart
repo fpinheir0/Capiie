@@ -12,7 +12,6 @@ class Page1 extends StatefulWidget {
 class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
   final int delayedAmount = 500;
 
-  late AnimationController _controller;
   int _currentSliderValue = 2;
   List state = [
     {'state': '1.svg', 'text': 'REALMENTE TERRÍVEL'},
@@ -24,16 +23,6 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
 
   @override
   void initState() {
-    _controller = AnimationController(
-      vsync: this,
-      duration: Duration(
-        milliseconds: 200,
-      ),
-      lowerBound: 0.0,
-      upperBound: 0.1,
-    )..addListener(() {
-        setState(() {});
-      });
     super.initState();
   }
 
@@ -98,7 +87,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                           fontSize: 20.0,
                           color: Colors.white),
                     ),
-                    delay: delayedAmount + 5000,
+                    delay: delayedAmount + 3000,
                     direction: 'up'),
               ),
               SizedBox(
@@ -125,7 +114,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                       ),
                     ],
                   ),
-                  delay: delayedAmount + 7000,
+                  delay: delayedAmount + 4000,
                   direction: 'up'),
               SizedBox(
                 height: 50.0,
@@ -145,7 +134,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                       });
                     },
                   ),
-                  delay: delayedAmount + 7000,
+                  delay: delayedAmount + 4000,
                   direction: 'up'),
               SizedBox(
                 height: 80.0,
@@ -158,7 +147,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                     },
                     child: _animatedButtonUI,
                   ),
-                  delay: delayedAmount + 8000,
+                  delay: delayedAmount + 5000,
                   direction: 'up'),
             ],
           ),
