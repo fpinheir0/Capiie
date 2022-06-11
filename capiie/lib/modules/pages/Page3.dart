@@ -4,6 +4,9 @@ import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:flutter/material.dart';
 
 class page3 extends StatefulWidget {
+  String nome;
+  page3(this.nome);
+
   @override
   _page3State createState() => _page3State();
 }
@@ -46,7 +49,7 @@ class _page3State extends State<page3> {
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  "Shooow! seja bem vindo! vamos começar a criação do seu cartão de vez!",
+                  "Shooow! ${widget.nome} seja bem vindo! vamos começar a criação do seu cartão de vez!",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,

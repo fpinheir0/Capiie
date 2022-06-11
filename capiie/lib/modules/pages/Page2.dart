@@ -11,7 +11,18 @@ class page2 extends StatefulWidget {
 class _page2State extends State<page2> {
   final int delayedAmount = 500;
 
-  TextEditingController yourControllerName = new TextEditingController();
+  TextEditingController txtNome = new TextEditingController();
+
+  void Salvar() {
+    String nome;
+
+    setState(() {
+      nome = txtNome.text;
+
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => page3(nome)));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +77,7 @@ class _page2State extends State<page2> {
                 padding: const EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
-                      controller: yourControllerName,
+                      controller: txtNome,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Nome',
@@ -81,8 +92,7 @@ class _page2State extends State<page2> {
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => page3()));
+                      Salvar();
                     },
                     child: _animatedButtonUI,
                   ),
