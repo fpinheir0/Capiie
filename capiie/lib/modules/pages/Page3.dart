@@ -44,7 +44,7 @@ class _page3State extends State<page3> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: Text(
                   "Shooow! seja bem vindo! vamos começar a criação do seu cartão de vez!",
                   textAlign: TextAlign.center,
@@ -58,7 +58,7 @@ class _page3State extends State<page3> {
                 height: 1.0,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: Text(
                   "Preencha as demais informações",
                   textAlign: TextAlign.center,
@@ -72,11 +72,11 @@ class _page3State extends State<page3> {
                 height: 20.0,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
-                      decoration: const InputDecoration(
-                        border: UnderlineInputBorder(),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
                         labelText: 'CARGO',
                       ),
                     ),
@@ -87,11 +87,11 @@ class _page3State extends State<page3> {
                 height: 20.0,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
-                      decoration: const InputDecoration(
-                        border: UnderlineInputBorder(),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
                         labelText: 'EMAIL',
                       ),
                     ),
@@ -102,11 +102,11 @@ class _page3State extends State<page3> {
                 height: 20.0,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
-                      decoration: const InputDecoration(
-                        border: UnderlineInputBorder(),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
                         labelText: 'WHATSAPP',
                       ),
                     ),
@@ -117,11 +117,11 @@ class _page3State extends State<page3> {
                 height: 20.0,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
-                      decoration: const InputDecoration(
-                        border: UnderlineInputBorder(),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
                         labelText: 'TELEFONE',
                       ),
                     ),

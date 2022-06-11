@@ -67,8 +67,8 @@ class _page2State extends State<page2> {
                 child: DelayedAnimation(
                     child: TextFormField(
                       controller: yourControllerName,
-                      decoration: const InputDecoration(
-                        border: UnderlineInputBorder(),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
                         labelText: 'Nome',
                       ),
                     ),

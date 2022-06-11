@@ -33,7 +33,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
       backgroundColor: Color(0xFF8185E2),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: EdgeInsets.all(12.0),
           child: Column(
             children: <Widget>[
               Container(
@@ -60,7 +60,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 20.0, left: 20),
+                padding: EdgeInsets.only(right: 20.0, left: 20),
                 child: DelayedAnimation(
                     child: Text(
                       "Olá Humano, meu nome é Capiie e vou te ajudar durante o processo de criação do nosso cartão virtual",
@@ -77,7 +77,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                 height: 70.0,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: Text(
                       "Me diga como você está se sentindo?",

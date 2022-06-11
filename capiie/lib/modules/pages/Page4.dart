@@ -15,7 +15,7 @@ class _page4State extends State<page4> {
       backgroundColor: Color(0xFF8185E2),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: EdgeInsets.all(12.0),
           child: Column(children: <Widget>[
             Container(
               child: Center(
@@ -42,7 +42,7 @@ class _page4State extends State<page4> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: Text(
                 "PAGE PICTURE",
                 textAlign: TextAlign.center,
