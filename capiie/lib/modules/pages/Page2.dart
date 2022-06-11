@@ -27,6 +27,7 @@ class _page2State extends State<page2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFF8185E2),
       body: Center(
         child: Padding(

@@ -17,6 +17,7 @@ class _page3State extends State<page3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFF8185E2),
       body: Center(
         child: Padding(
@@ -142,7 +143,7 @@ class _page3State extends State<page3> {
                     },
                     child: _animatedButtonUI,
                   ),
-                  delay: delayedAmount + 7000,
+                  delay: delayedAmount + 2000,
                   direction: 'up'),
             ],
           ),

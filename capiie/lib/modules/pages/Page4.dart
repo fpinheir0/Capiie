@@ -12,6 +12,7 @@ class _page4State extends State<page4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFF8185E2),
       body: Center(
         child: Padding(
