@@ -3,6 +3,7 @@ import 'package:capiie/modules/pages/Page4.dart';
 import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class page3 extends StatefulWidget {
   String nome;
   page3(this.nome);
