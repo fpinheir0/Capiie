@@ -1,7 +1,6 @@
 import 'package:capiie/modules/pages/Page2.dart';
 import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 
 class Page1 extends StatefulWidget {
