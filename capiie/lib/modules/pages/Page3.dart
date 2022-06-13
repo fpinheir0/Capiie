@@ -3,7 +3,6 @@ import 'package:capiie/modules/pages/Page4.dart';
 import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class page3 extends StatefulWidget {
   String nome;
   page3(this.nome);
@@ -12,17 +11,35 @@ class page3 extends StatefulWidget {
   _page3State createState() => _page3State();
 }
 
-class _page3State extends State<page3> {
+class _page3State extends State<page3> with SingleTickerProviderStateMixin {
   final int delayedAmount = 500;
+
+  TextEditingController txtCargo = new TextEditingController();
+
+  void Salvar() {
+    String cargo;
+
+    setState(() {
+      cargo = txtCargo.text;
+
+      Navigator.push(context, MaterialPageRoute(builder: (context) => page4()));
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    //   _scale = 1 - _controller.value;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFF8185E2),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: EdgeInsets.all(12.0),
           child: Column(
             children: <Widget>[
               Container(
@@ -60,83 +77,41 @@ class _page3State extends State<page3> {
                 ),
               ),
               SizedBox(
-                height: 1.0,
+                height: 40.0,
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  "Preencha as demais informações",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.0,
-                      color: Colors.white),
-                ),
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(right: 20.0, left: 20),
                 child: DelayedAnimation(
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'CARGO',
-                      ),
+                    child: Text(
+                      "Que tal você me falar onde é que você trabalha ?",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.0,
+                          color: Colors.white),
                     ),
-                    delay: delayedAmount + 1000,
+                    delay: delayedAmount + 2000,
                     direction: 'up'),
               ),
               SizedBox(
-                height: 20.0,
+                height: 100.0,
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
+                      controller: txtCargo,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'EMAIL',
+                        labelText: 'Cargo',
                       ),
                     ),
-                    delay: delayedAmount + 1000,
+                    delay: delayedAmount + 5000,
                     direction: 'up'),
               ),
               SizedBox(
-                height: 20.0,
+                height: 40.0,
               ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: DelayedAnimation(
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'WHATSAPP',
-                      ),
-                    ),
-                    delay: delayedAmount + 1000,
-                    direction: 'up'),
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: DelayedAnimation(
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'TELEFONE',
-                      ),
-                    ),
-                    delay: delayedAmount + 1000,
-                    direction: 'up'),
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              Divider(),
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomCenter,
@@ -145,12 +120,11 @@ class _page3State extends State<page3> {
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => page4()));
+                      Salvar();
                     },
                     child: _animatedButtonUI,
                   ),
-                  delay: delayedAmount + 2000,
+                  delay: delayedAmount + 7000,
                   direction: 'up'),
             ],
           ),
