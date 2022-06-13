@@ -48,7 +48,7 @@ class _page4State extends State<page4> {
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  "PAGE PICTURE",
+                  "Que tal tirarmos uma foto para inserirmos em seu cartão ?",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -57,9 +57,8 @@ class _page4State extends State<page4> {
                 ),
               ),
               SizedBox(
-                height: 1.0,
+                height: 100,
               ),
-              Divider(),
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomCenter,
