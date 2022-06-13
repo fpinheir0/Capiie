@@ -97,10 +97,11 @@ class _pageCamera extends State<pageCamera> {
     );
   }
 
+  //Widget que realiza a verificação caso a camera ão esteja disponivel
   _cameraPreviewWidget() {
     final CameraController? cameraController = controller;
     if (cameraController == null || !cameraController.value.isInitialized) {
-      return Text("Widget para a Câmera não está disponivel");
+      return Text("Câmera não está disponivel");
     } else {
       return Stack(
         alignment: AlignmentDirectional.bottomCenter,
