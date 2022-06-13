@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
@@ -66,6 +68,78 @@ class _pageCamera extends State<pageCamera> {
         centerTitle: true,
         elevation: 0,
       ),
+      body: Container(
+        color: Color(0xFF8185E2),
+        child: Center(
+          child: _arquivoWidget(),
+        ),
+      ),
+      floatingActionButton: (imagem != null)
+          ? FloatingActionButton.extended(
+              onPressed: () => Navigator.pop(context),
+              label: Text("Finalizar"),
+            )
+          : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
+  }
+
+  _arquivoWidget() {
+    return Container(
+      width: size!.width - 50,
+      height: size!.height - (size!.height / 3),
+      child: imagem == null
+          ? _cameraPreviewWidget()
+          : Image.file(
+              File(imagem!.path),
+              fit: BoxFit.contain,
+            ),
+    );
+  }
+
+  _cameraPreviewWidget() {
+    final CameraController? cameraController = controller;
+    if (cameraController == null || !cameraController.value.isInitialized) {
+      return Text("Widget para a Câmera não está disponivel");
+    } else {
+      return Stack(
+        alignment: AlignmentDirectional.bottomCenter,
+        children: [
+          CameraPreview(controller!),
+          _botaoCapturarWidget(),
+        ],
+      );
+    }
+  }
+
+  _botaoCapturarWidget() {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 24),
+      child: CircleAvatar(
+        radius: 32,
+        backgroundColor: Colors.black.withOpacity(0.5),
+        child: IconButton(
+          icon: Icon(
+            Icons.camera_alt,
+            color: Colors.white,
+            size: 30,
+          ),
+          onPressed: tirarFoto,
+        ),
+      ),
+    );
+  }
+
+  tirarFoto() async {
+    final CameraController? cameraController = controller;
+
+    if (cameraController != null && cameraController.value.isInitialized) {
+      try {
+        XFile file = await cameraController.takePicture();
+        if (mounted) setState(() => imagem = file);
+      } on CameraException catch (e) {
+        print(e.description);
+      }
+    }
   }
 }
