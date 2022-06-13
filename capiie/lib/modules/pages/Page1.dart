@@ -12,15 +12,6 @@ class Page1 extends StatefulWidget {
 class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
   final int delayedAmount = 500;
 
-  int _currentSliderValue = 2;
-  List state = [
-    {'state': '1.svg', 'text': 'REALMENTE TERRÍVEL'},
-    {'state': '2.svg', 'text': 'UM POUCO RUIM'},
-    {'state': '3.svg', 'text': 'COMPLETAMENTE OK'},
-    {'state': '4.svg', 'text': 'MUITO BOM'},
-    {'state': '5.svg', 'text': 'SUPER INCRÍVEL'}
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -76,70 +67,6 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
               SizedBox(
                 height: 70.0,
               ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: DelayedAnimation(
-                    child: Text(
-                      "Me diga como você está se sentindo?",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20.0,
-                          color: Colors.white),
-                    ),
-                    delay: delayedAmount + 3000,
-                    direction: 'up'),
-              ),
-              SizedBox(
-                height: 40.0,
-              ),
-              DelayedAnimation(
-                  child: Column(
-                    children: [
-                      SvgPicture.asset(
-                          'assets/svg/' + state[_currentSliderValue]['state'],
-                          color: Colors.white,
-                          width: 80,
-                          semanticsLabel: 'A red up arrow'),
-                      SizedBox(
-                        height: 15.0,
-                      ),
-                      Text(
-                        state[_currentSliderValue]['text'],
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontWeight: FontWeight.normal,
-                            fontSize: 16.0,
-                            color: Colors.white),
-                      ),
-                    ],
-                  ),
-                  delay: delayedAmount + 4000,
-                  direction: 'up'),
-              SizedBox(
-                height: 50.0,
-              ),
-              DelayedAnimation(
-                  child: Slider(
-                    value: _currentSliderValue.toDouble(),
-                    min: 0,
-                    max: 4,
-                    // divisions: 5,
-                    activeColor: Colors.white,
-                    inactiveColor: Color(0xFF5C63CD),
-                    label: _currentSliderValue.round().toString(),
-                    onChanged: (double value) {
-                      setState(() {
-                        _currentSliderValue = value.round();
-                      });
-                    },
-                  ),
-                  delay: delayedAmount + 4000,
-                  direction: 'up'),
-              SizedBox(
-                height: 80.0,
-              ),
-              Divider(),
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomCenter,
