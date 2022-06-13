@@ -18,6 +18,7 @@ dependencies:
   dot_navigation_bar: ^1.0.1+4
   toggle_switch: ^2.0.1
   bezier_chart: ^1.0.17+1
+  camera: ^0.8.1+5
 
 dev_dependencies:
   flutter_test:
