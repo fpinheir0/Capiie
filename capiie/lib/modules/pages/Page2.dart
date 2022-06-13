@@ -90,6 +90,12 @@ class _page2State extends State<page2> {
               SizedBox(
                 height: 40.0,
               ),
+              Divider(),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                ),
+              ),
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {

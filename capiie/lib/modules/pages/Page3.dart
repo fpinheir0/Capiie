@@ -136,6 +136,12 @@ class _page3State extends State<page3> {
               SizedBox(
                 height: 20.0,
               ),
+              Divider(),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                ),
+              ),
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {

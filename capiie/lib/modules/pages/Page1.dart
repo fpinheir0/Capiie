@@ -139,6 +139,12 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
               SizedBox(
                 height: 80.0,
               ),
+              Divider(),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                ),
+              ),
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {
