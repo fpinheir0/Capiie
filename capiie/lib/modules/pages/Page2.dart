@@ -12,6 +12,7 @@ class _page2State extends State<page2> {
   final int delayedAmount = 500;
 
   TextEditingController txtNome = new TextEditingController();
+  bool texterror = false;
 
   void Salvar() {
     String nome;
@@ -58,7 +59,7 @@ class _page2State extends State<page2> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 20.0, left: 20),
+                padding: EdgeInsets.only(right: 20.0, left: 20),
                 child: DelayedAnimation(
                     child: Text(
                       "Para que possamos ficar mais próximos me diga seu nome ?",
@@ -75,14 +76,15 @@ class _page2State extends State<page2> {
                 height: 100.0,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
                       controller: txtNome,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Nome',
-                      ),
+                          border: OutlineInputBorder(),
+                          labelText: 'Nome',
+                          errorText:
+                              texterror ? "Por favor insira o nome!" : null),
                     ),
                     delay: delayedAmount + 5000,
                     direction: 'up'),
@@ -99,7 +101,17 @@ class _page2State extends State<page2> {
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {
-                      Salvar();
+                      if (txtNome.text.isEmpty ||
+                          !RegExp(r'^[a-z A-Z]+$').hasMatch(txtNome.text)) {
+                        setState(() {
+                          texterror = true;
+                        });
+                      } else {
+                        setState(() {
+                          texterror = false;
+                          Salvar();
+                        });
+                      }
                     },
                     child: _animatedButtonUI,
                   ),
