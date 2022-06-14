@@ -1,5 +1,4 @@
 import 'package:avatar_glow/avatar_glow.dart';
-import 'package:capiie/modules/pages/Page4.dart';
 import 'package:flutter/material.dart';
 
 class PageResumo extends StatefulWidget {
