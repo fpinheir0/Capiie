@@ -15,6 +15,7 @@ class _page3State extends State<page3> with SingleTickerProviderStateMixin {
   final int delayedAmount = 500;
 
   TextEditingController txtCargo = new TextEditingController();
+  bool texterror = false;
 
   void Salvar() {
     String cargo;
@@ -97,14 +98,15 @@ class _page3State extends State<page3> with SingleTickerProviderStateMixin {
                 height: 100.0,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
                       controller: txtCargo,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Cargo',
-                      ),
+                          border: OutlineInputBorder(),
+                          labelText: 'Cargo',
+                          errorText:
+                              texterror ? "Por favor insira o Cargo!" : null),
                     ),
                     delay: delayedAmount + 5000,
                     direction: 'up'),
@@ -120,7 +122,17 @@ class _page3State extends State<page3> with SingleTickerProviderStateMixin {
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {
-                      Salvar();
+                      if (txtCargo.text.isEmpty ||
+                          !RegExp(r'^[a-z A-Z]+$').hasMatch(txtCargo.text)) {
+                        setState(() {
+                          texterror = true;
+                        });
+                      } else {
+                        setState(() {
+                          texterror = false;
+                          Salvar();
+                        });
+                      }
                     },
                     child: _animatedButtonUI,
                   ),
