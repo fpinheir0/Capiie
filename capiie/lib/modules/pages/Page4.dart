@@ -12,6 +12,7 @@ class _page4State extends State<page4> {
   final int delayedAmount = 500;
 
   TextEditingController txtEmail = new TextEditingController();
+  bool texterror = false;
 
   void Salvar() {
     String email;
@@ -74,14 +75,16 @@ class _page4State extends State<page4> {
                 height: 100.0,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
                       controller: txtEmail,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Email',
-                      ),
+                          border: OutlineInputBorder(),
+                          labelText: 'Email',
+                          errorText: texterror
+                              ? "Por favor insira o email correto!"
+                              : null),
                     ),
                     delay: delayedAmount + 5000,
                     direction: 'up'),
@@ -89,7 +92,6 @@ class _page4State extends State<page4> {
               SizedBox(
                 height: 40.0,
               ),
-              Divider(),
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomCenter,
@@ -98,7 +100,18 @@ class _page4State extends State<page4> {
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {
-                      Salvar();
+                      if (txtEmail.text.isEmpty ||
+                          !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                              .hasMatch(txtEmail.text)) {
+                        setState(() {
+                          texterror = true;
+                        });
+                      } else {
+                        setState(() {
+                          texterror = false;
+                          Salvar();
+                        });
+                      }
                     },
                     child: _animatedButtonUI,
                   ),
