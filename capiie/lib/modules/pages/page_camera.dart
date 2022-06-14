@@ -86,8 +86,10 @@ class _pageCamera extends State<pageCamera> {
 
   _arquivoWidget() {
     return Container(
-      width: size!.width - 50,
-      height: size!.height - (size!.height / 3),
+      //TAMANHO DA TELA DA FOTO
+      // width: size!.width - 50,
+      // height: size!.height - (size!.height / 3),
+      height: double.infinity,
       child: imagem == null
           ? _cameraPreviewWidget()
           : Image.file(
