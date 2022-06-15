@@ -2,6 +2,7 @@ import 'package:capiie/modules/pages/Page2.dart';
 import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:page_transition/page_transition.dart';
 
 class Page1 extends StatefulWidget {
   @override
@@ -61,13 +62,16 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                           fontSize: 20.0,
                           color: Colors.white),
                     ),
-                    delay: delayedAmount + 2000,
+                    delay: 2000,
                     direction: 'up'),
               ),
-              Container(
-                width: 500,
-                height: 450,
-                child: Image.asset("assets/images/Startup_Outline.png"),
+              Column(
+                children: [
+                  DelayedAnimation(
+                      child: Image.asset("assets/images/Startup_Outline.png"),
+                      delay: 3000,
+                      direction: "up"),
+                ],
               ),
               Expanded(
                 child: Align(
@@ -76,13 +80,21 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
               ),
               DelayedAnimation(
                   child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => page2()));
+                    onTap: () => {
+                      Navigator.push(
+                        context,
+                        PageTransition(
+                          child: page2(),
+                          type: PageTransitionType.rotate,
+                          alignment: Alignment.center,
+                          duration: Duration(milliseconds: 1000),
+                          reverseDuration: Duration(milliseconds: 1000),
+                        ),
+                      ),
                     },
                     child: _animatedButtonUI,
                   ),
-                  delay: delayedAmount + 5000,
+                  delay: 4000,
                   direction: 'up'),
             ],
           ),
