@@ -56,8 +56,10 @@ class _pageFotoState extends State<pageFoto> {
                       color: Colors.white),
                 ),
               ),
-              SizedBox(
-                height: 100,
+              Container(
+                height: 450,
+                width: 500,
+                child: Image.asset("assets/images/photo.png"),
               ),
               Expanded(
                 child: Align(
