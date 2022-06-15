@@ -1,4 +1,6 @@
+import 'package:capiie/modules/pages/Page1.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -37,7 +39,16 @@ class LoginPage extends StatelessWidget {
                     shadowColor: Color.fromARGB(255, 72, 186, 139),
                   ),
                   child: Text('Bora criar o cartão ?'),
-                  onPressed: () => Navigator.pushNamed(context, "/robot"),
+                  onPressed: () => Navigator.push(
+                    context,
+                    PageTransition(
+                      child: Page1(),
+                      type: PageTransitionType.rotate,
+                      alignment: Alignment.center,
+                      duration: Duration(milliseconds: 600),
+                      reverseDuration: Duration(milliseconds: 600),
+                    ),
+                  ),
                 ),
               ],
             ),
