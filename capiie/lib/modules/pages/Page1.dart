@@ -20,10 +20,11 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     //   _scale = 1 - _controller.value;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFF8185E2),
       body: Center(
         child: Padding(
-          padding: EdgeInsets.all(12.0),
+          padding: EdgeInsets.all(10.0),
           child: Column(
             children: <Widget>[
               Container(
@@ -63,8 +64,10 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                     delay: delayedAmount + 2000,
                     direction: 'up'),
               ),
-              SizedBox(
-                height: 70.0,
+              Container(
+                width: 500,
+                height: 450,
+                child: Image.asset("assets/images/Startup_Outline.png"),
               ),
               Expanded(
                 child: Align(
