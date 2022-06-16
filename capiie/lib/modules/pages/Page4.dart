@@ -68,7 +68,7 @@ class _page4State extends State<page4> {
                           fontSize: 20.0,
                           color: Colors.white),
                     ),
-                    delay: delayedAmount + 2000,
+                    delay: 1000,
                     direction: 'up'),
               ),
               SizedBox(
@@ -86,7 +86,7 @@ class _page4State extends State<page4> {
                               ? "Por favor insira o email correto!"
                               : null),
                     ),
-                    delay: delayedAmount + 5000,
+                    delay: 2000,
                     direction: 'up'),
               ),
               SizedBox(
@@ -115,7 +115,7 @@ class _page4State extends State<page4> {
                     },
                     child: _animatedButtonUI,
                   ),
-                  delay: delayedAmount + 7000,
+                  delay: 3000,
                   direction: 'up'),
             ],
           ),

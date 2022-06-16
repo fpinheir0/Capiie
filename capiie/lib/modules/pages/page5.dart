@@ -70,7 +70,7 @@ class _page5State extends State<page5> {
                           fontSize: 20.0,
                           color: Colors.white),
                     ),
-                    delay: delayedAmount + 2000,
+                    delay: 1000,
                     direction: 'up'),
               ),
               SizedBox(
@@ -88,7 +88,7 @@ class _page5State extends State<page5> {
                               ? "Por favor insira o Telefone correto!"
                               : null),
                     ),
-                    delay: delayedAmount + 5000,
+                    delay: 3000,
                     direction: 'up'),
               ),
               SizedBox(
@@ -117,7 +117,7 @@ class _page5State extends State<page5> {
                     },
                     child: _animatedButtonUI,
                   ),
-                  delay: delayedAmount + 7000,
+                  delay: 4000,
                   direction: 'up'),
             ],
           ),

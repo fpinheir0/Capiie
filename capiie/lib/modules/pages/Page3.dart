@@ -3,6 +3,7 @@ import 'package:capiie/modules/pages/Page4.dart';
 import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class page3 extends StatefulWidget {
   String nome;
   page3(this.nome);
@@ -91,7 +92,7 @@ class _page3State extends State<page3> with SingleTickerProviderStateMixin {
                           fontSize: 20.0,
                           color: Colors.white),
                     ),
-                    delay: delayedAmount + 2000,
+                    delay: 2000,
                     direction: 'up'),
               ),
               SizedBox(
@@ -108,7 +109,7 @@ class _page3State extends State<page3> with SingleTickerProviderStateMixin {
                           errorText:
                               texterror ? "Por favor insira o Cargo!" : null),
                     ),
-                    delay: delayedAmount + 5000,
+                    delay: 3000,
                     direction: 'up'),
               ),
               SizedBox(
@@ -136,7 +137,7 @@ class _page3State extends State<page3> with SingleTickerProviderStateMixin {
                     },
                     child: _animatedButtonUI,
                   ),
-                  delay: delayedAmount + 7000,
+                  delay: 3000,
                   direction: 'up'),
             ],
           ),
