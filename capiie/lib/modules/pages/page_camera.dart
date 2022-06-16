@@ -1,5 +1,6 @@
-import 'dart:io';
+// OLD ONE
 
+import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
@@ -41,8 +42,8 @@ class _pageCamera extends State<pageCamera> {
   _previewCamera(CameraDescription camera) async {
     final CameraController cameraController = CameraController(
       camera,
-      enableAudio: false,
       ResolutionPreset.high,
+      enableAudio: false,
       imageFormatGroup: ImageFormatGroup.jpeg,
     );
     controller = cameraController;
@@ -62,14 +63,9 @@ class _pageCamera extends State<pageCamera> {
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Tire sua Foto aqui (:"),
-        backgroundColor: Color(0xFF8185E2),
-        centerTitle: true,
-        elevation: 0,
-      ),
       body: Container(
-        color: Color(0xFF8185E2),
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         child: Center(
           child: _arquivoWidget(),
         ),
