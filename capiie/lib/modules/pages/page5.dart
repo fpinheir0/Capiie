@@ -1,6 +1,5 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:capiie/modules/pages/page_foto.dart';
-import 'package:capiie/modules/pages/page_resumo.dart';
 import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:flutter/material.dart';
 
