@@ -11,14 +11,16 @@ class page4 extends StatefulWidget {
 class _page4State extends State<page4> {
   final int delayedAmount = 500;
 
-  TextEditingController txtEmail = new TextEditingController();
+  TextEditingController _email = TextEditingController();
+
   bool texterror = false;
 
   void Salvar() {
+    // ignore: unused_local_variable
     String email;
 
     setState(() {
-      email = txtEmail.text;
+      email = _email.text;
 
       Navigator.push(context, MaterialPageRoute(builder: (context) => page5()));
     });
@@ -78,7 +80,7 @@ class _page4State extends State<page4> {
                 padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
-                      controller: txtEmail,
+                      controller: _email,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Email',
@@ -100,9 +102,9 @@ class _page4State extends State<page4> {
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {
-                      if (txtEmail.text.isEmpty ||
+                      if (_email.text.isEmpty ||
                           !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                              .hasMatch(txtEmail.text)) {
+                              .hasMatch(_email.text)) {
                         setState(() {
                           texterror = true;
                         });

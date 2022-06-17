@@ -11,14 +11,15 @@ class page2 extends StatefulWidget {
 class _page2State extends State<page2> {
   final int delayedAmount = 500;
 
-  TextEditingController txtNome = new TextEditingController();
+  TextEditingController _nome = TextEditingController();
+
   bool texterror = false;
 
   void Salvar() {
     String nome;
 
     setState(() {
-      nome = txtNome.text;
+      nome = _nome.text;
 
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => page3(nome)));
@@ -79,7 +80,7 @@ class _page2State extends State<page2> {
                 padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
-                      controller: txtNome,
+                      controller: _nome,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Nome',
@@ -101,8 +102,8 @@ class _page2State extends State<page2> {
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {
-                      if (txtNome.text.isEmpty ||
-                          !RegExp(r'^[a-z A-Z]+$').hasMatch(txtNome.text)) {
+                      if (_nome.text.isEmpty ||
+                          !RegExp(r'^[a-z A-Z]+$').hasMatch(_nome.text)) {
                         setState(() {
                           texterror = true;
                         });

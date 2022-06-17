@@ -11,14 +11,15 @@ class page5 extends StatefulWidget {
 class _page5State extends State<page5> {
   final int delayedAmount = 500;
 
-  TextEditingController txtTelefone = new TextEditingController();
+  TextEditingController _telefone = TextEditingController();
+
   bool texterror = false;
 
   void Salvar() {
     String telefone;
 
     setState(() {
-      telefone = txtTelefone.text;
+      telefone = _telefone.text;
 
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => pageFoto()));
@@ -79,7 +80,7 @@ class _page5State extends State<page5> {
                 padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
-                      controller: txtTelefone,
+                      controller: _telefone,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Telefone / WhatsApp',
@@ -101,9 +102,9 @@ class _page5State extends State<page5> {
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {
-                      if (txtTelefone.text.isEmpty ||
+                      if (_telefone.text.isEmpty ||
                           !RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$')
-                              .hasMatch(txtTelefone.text)) {
+                              .hasMatch(_telefone.text)) {
                         setState(() {
                           texterror = true;
                         });

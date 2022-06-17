@@ -15,14 +15,15 @@ class page3 extends StatefulWidget {
 class _page3State extends State<page3> with SingleTickerProviderStateMixin {
   final int delayedAmount = 500;
 
-  TextEditingController txtCargo = new TextEditingController();
+  TextEditingController _cargo = TextEditingController();
+
   bool texterror = false;
 
   void Salvar() {
     String cargo;
 
     setState(() {
-      cargo = txtCargo.text;
+      cargo = _cargo.text;
 
       Navigator.push(context, MaterialPageRoute(builder: (context) => page4()));
     });
@@ -102,7 +103,7 @@ class _page3State extends State<page3> with SingleTickerProviderStateMixin {
                 padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
-                      controller: txtCargo,
+                      controller: _cargo,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Cargo',
@@ -123,8 +124,8 @@ class _page3State extends State<page3> with SingleTickerProviderStateMixin {
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {
-                      if (txtCargo.text.isEmpty ||
-                          !RegExp(r'^[a-z A-Z]+$').hasMatch(txtCargo.text)) {
+                      if (_cargo.text.isEmpty ||
+                          !RegExp(r'^[a-z A-Z]+$').hasMatch(_cargo.text)) {
                         setState(() {
                           texterror = true;
                         });
