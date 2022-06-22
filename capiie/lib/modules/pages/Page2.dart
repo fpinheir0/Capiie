@@ -1,7 +1,11 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:capiie/modules/pages/Page3.dart';
+import 'package:capiie/modules/pages/bloc/cadastro_bloc.dart';
+import 'package:capiie/modules/pages/bloc/cadastro_event.dart';
+import 'package:capiie/modules/pages/bloc/cadastro_state.dart';
 import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class page2 extends StatefulWidget {
   @override
@@ -11,23 +15,13 @@ class page2 extends StatefulWidget {
 class _page2State extends State<page2> {
   final int delayedAmount = 500;
 
-  TextEditingController _nome = TextEditingController();
+  final GlobalKey _formkey = GlobalKey();
 
   bool texterror = false;
 
-  void Salvar() {
-    String nome;
-
-    setState(() {
-      nome = _nome.text;
-
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => page3(nome)));
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    var bloc = BlocProvider.of<cadastroBloc>(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFF8185E2),
@@ -77,15 +71,23 @@ class _page2State extends State<page2> {
                 height: 100.0,
               ),
               Padding(
+                key: _formkey,
                 padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
-                    child: TextFormField(
-                      controller: _nome,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Nome',
-                          errorText:
-                              texterror ? "Por favor insira o nome!" : null),
+                    child: BlocBuilder<cadastroBloc, CadastroPageState>(
+                      bloc: bloc,
+                      builder: (context, state) {
+                        return TextFormField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Nome',
+                              errorText: texterror
+                                  ? "Por favor insira o nome!"
+                                  : null),
+                          onChanged: (Nome) =>
+                              bloc.add(CadastroEventUpdate(Nome)),
+                        );
+                      },
                     ),
                     delay: 2000,
                     direction: 'up'),
@@ -102,17 +104,8 @@ class _page2State extends State<page2> {
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {
-                      if (_nome.text.isEmpty ||
-                          !RegExp(r'^[a-z A-Z]+$').hasMatch(_nome.text)) {
-                        setState(() {
-                          texterror = true;
-                        });
-                      } else {
-                        setState(() {
-                          texterror = false;
-                          Salvar();
-                        });
-                      }
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => page3()));
                     },
                     child: _animatedButtonUI,
                   ),
