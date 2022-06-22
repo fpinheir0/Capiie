@@ -1,13 +1,14 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:capiie/modules/pages/Page4.dart';
+import 'package:capiie/modules/pages/bloc/cadastro_bloc.dart';
+import 'package:capiie/modules/pages/bloc/cadastro_event.dart';
+import 'package:capiie/modules/pages/bloc/cadastro_state.dart';
 import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
 class page3 extends StatefulWidget {
-  String nome;
-  page3(this.nome);
-
   @override
   _page3State createState() => _page3State();
 }
@@ -15,19 +16,8 @@ class page3 extends StatefulWidget {
 class _page3State extends State<page3> with SingleTickerProviderStateMixin {
   final int delayedAmount = 500;
 
-  TextEditingController _cargo = TextEditingController();
-
+  final GlobalKey _formkey = GlobalKey();
   bool texterror = false;
-
-  void Salvar() {
-    String cargo;
-
-    setState(() {
-      cargo = _cargo.text;
-
-      Navigator.push(context, MaterialPageRoute(builder: (context) => page4()));
-    });
-  }
 
   @override
   void initState() {
@@ -36,7 +26,7 @@ class _page3State extends State<page3> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    //   _scale = 1 - _controller.value;
+    var bloc = BlocProvider.of<cadastroBloc>(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFF8185E2),
@@ -71,7 +61,7 @@ class _page3State extends State<page3> with SingleTickerProviderStateMixin {
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  "Shooow! ${widget.nome} seja bem vindo! vamos começar a criação do seu cartão de vez!",
+                  "Shooow! seja bem vindo! vamos começar a criação do seu cartão de vez!",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -100,18 +90,26 @@ class _page3State extends State<page3> with SingleTickerProviderStateMixin {
                 height: 100.0,
               ),
               Padding(
+                key: _formkey,
                 padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
-                    child: TextFormField(
-                      controller: _cargo,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Cargo',
-                          errorText:
-                              texterror ? "Por favor insira o Cargo!" : null),
-                    ),
-                    delay: 3000,
-                    direction: 'up'),
+                  child: BlocBuilder<cadastroBloc, CadastroPageState>(
+                    bloc: bloc,
+                    builder: (context, state) {
+                      return TextFormField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Nome',
+                            errorText:
+                                texterror ? "Por favor insira o nome!" : null),
+                        onChanged: (Cargo) =>
+                            bloc.add(CadastroEventUpdate(Cargo)),
+                      );
+                    },
+                  ),
+                  delay: 2000,
+                  direction: "up",
+                ),
               ),
               SizedBox(
                 height: 40.0,
@@ -124,17 +122,8 @@ class _page3State extends State<page3> with SingleTickerProviderStateMixin {
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {
-                      if (_cargo.text.isEmpty ||
-                          !RegExp(r'^[a-z A-Z]+$').hasMatch(_cargo.text)) {
-                        setState(() {
-                          texterror = true;
-                        });
-                      } else {
-                        setState(() {
-                          texterror = false;
-                          Salvar();
-                        });
-                      }
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => page4()));
                     },
                     child: _animatedButtonUI,
                   ),
