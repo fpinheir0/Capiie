@@ -39,7 +39,7 @@ class LoginPage extends StatelessWidget {
                     shadowColor: Color.fromARGB(255, 72, 186, 139),
                   ),
                   child: Text('Bora criar o cartão ?'),
-                  onPressed: () => Navigator.push(
+                  onPressed: () => Navigator.pushReplacement(
                     context,
                     PageTransition(
                       child: Page1(),
