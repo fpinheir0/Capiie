@@ -1,7 +1,11 @@
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:capiie/modules/pages/bloc/cadastro_bloc.dart';
+import 'package:capiie/modules/pages/bloc/cadastro_event.dart';
+import 'package:capiie/modules/pages/bloc/cadastro_state.dart';
 import 'package:capiie/modules/pages/page_foto.dart';
 import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class page5 extends StatefulWidget {
   @override
@@ -10,24 +14,11 @@ class page5 extends StatefulWidget {
 
 class _page5State extends State<page5> {
   final int delayedAmount = 500;
-
-  TextEditingController _telefone = TextEditingController();
-
   bool texterror = false;
-
-  void Salvar() {
-    String telefone;
-
-    setState(() {
-      telefone = _telefone.text;
-
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => pageFoto()));
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
+    var bloc = BlocProvider.of<cadastroBloc>(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFF8185E2),
@@ -79,14 +70,20 @@ class _page5State extends State<page5> {
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
-                    child: TextFormField(
-                      controller: _telefone,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Telefone / WhatsApp',
-                          errorText: texterror
-                              ? "Por favor insira o Telefone correto!"
-                              : null),
+                    child: BlocBuilder<cadastroBloc, CadastroPageState>(
+                      bloc: bloc,
+                      builder: (context, state) {
+                        return TextFormField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Nome',
+                              errorText: texterror
+                                  ? "Por favor insira o nome!"
+                                  : null),
+                          onChanged: (Telefone) =>
+                              bloc.add(CadastroEventUpdate(Telefone)),
+                        );
+                      },
                     ),
                     delay: 3000,
                     direction: 'up'),
@@ -102,18 +99,8 @@ class _page5State extends State<page5> {
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {
-                      if (_telefone.text.isEmpty ||
-                          !RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$')
-                              .hasMatch(_telefone.text)) {
-                        setState(() {
-                          texterror = true;
-                        });
-                      } else {
-                        setState(() {
-                          texterror = false;
-                          Salvar();
-                        });
-                      }
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => pageFoto()));
                     },
                     child: _animatedButtonUI,
                   ),
