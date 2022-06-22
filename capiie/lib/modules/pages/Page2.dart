@@ -10,7 +10,6 @@ class page2 extends StatefulWidget {
 
 class _page2State extends State<page2> {
   final int delayedAmount = 500;
-  //const RegisterNamePage ({Key key, required this.nome}) : super(key: key);
 
   TextEditingController _nome = TextEditingController();
 
