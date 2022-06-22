@@ -13,7 +13,13 @@ class cadastroBloc extends Bloc<CadastroEvent, CadastroPageState> {
     CadastroEvent event,
   ) async* {
     if (event is CadastroEventUpdate) {
-      var novoCadastro = _updateCadastro(Nome: event.Nome, Cargo: event.Cargo, Email: event.Email, Telefone: event.Telefone, Image: event.Image,)
+      var novoCadastro = _updateCadastro(
+        Nome: event.Nome,
+        Cargo: event.Cargo,
+        Email: event.Email,
+        Telefone: event.Telefone,
+        Image: event.Image,
+      );
       yield CadastroDafaultState(cadastro: novoCadastro);
     }
   }
