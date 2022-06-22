@@ -1,7 +1,9 @@
 import 'package:capiie/modules/login/login_page.dart';
-import 'package:capiie/modules/pages/bloc/resumo_bloc.dart';
-import 'package:capiie/modules/pages/bloc/resumo_event.dart';
-import 'package:capiie/modules/pages/bloc/resumo_state.dart';
+import 'package:capiie/modules/pages/bloc/cadastro_bloc.dart';
+import 'package:capiie/modules/pages/bloc/cadastro_event.dart';
+import 'package:capiie/modules/pages/bloc/cadastro_state.dart';
+import 'package:capiie/modules/pages/page_resumo.dart';
+import 'package:capiie/modules/pages/resumo_cadastro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,12 +20,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Capiie Totem',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
-      ),
-      home: BlocProvider<resumoBloc>(
-        create: (BuildContext context) =>
-            resumoBloc(resumoPageState())..add(resumoFetchList()),
+      theme: ThemeData.dark(),
+      home: BlocProvider<cadastroBloc>(
+        create: (BuildContext context) => cadastroBloc(),
         child: LoginPage(),
       ),
     );
