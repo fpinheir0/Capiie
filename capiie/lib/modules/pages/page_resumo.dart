@@ -63,6 +63,18 @@ class _PageResumoState extends State<PageResumo>
                 direction: "up",
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 0.0, bottom: 8.0, top: 26),
+                    child: Text("Detalhes do Cadastro"),
+                  ),
+                ],
+              ),
+            )
           ]),
         ),
       ),
