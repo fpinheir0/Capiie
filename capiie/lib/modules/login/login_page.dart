@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
                     context,
                     PageTransition(
                       child: Page1(),
-                      type: PageTransitionType.rotate,
+                      type: PageTransitionType.rightToLeft,
                       alignment: Alignment.center,
                       duration: Duration(milliseconds: 600),
                       reverseDuration: Duration(milliseconds: 600),

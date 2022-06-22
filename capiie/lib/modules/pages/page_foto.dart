@@ -121,7 +121,7 @@ class _pageFoto extends State<pageFoto> {
                         context,
                         PageTransition(
                           child: PageResumo(),
-                          type: PageTransitionType.rotate,
+                          type: PageTransitionType.rightToLeft,
                           alignment: Alignment.center,
                           duration: Duration(milliseconds: 1000),
                           reverseDuration: Duration(milliseconds: 1000),

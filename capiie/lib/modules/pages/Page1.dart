@@ -85,7 +85,7 @@ class _Page1State extends State<Page1> with SingleTickerProviderStateMixin {
                         context,
                         PageTransition(
                           child: page2(),
-                          type: PageTransitionType.rotate,
+                          type: PageTransitionType.rightToLeft,
                           alignment: Alignment.center,
                           duration: Duration(milliseconds: 1000),
                           reverseDuration: Duration(milliseconds: 1000),
