@@ -1,4 +1,5 @@
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:flutter/material.dart';
 
 class PageResumo extends StatefulWidget {
@@ -45,6 +46,21 @@ class _PageResumoState extends State<PageResumo>
                         radius: 30.0,
                       )),
                 ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(right: 20.0, left: 20),
+              child: DelayedAnimation(
+                child: Text(
+                  "Resumo das Informações",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                      color: Colors.white),
+                ),
+                delay: 1000,
+                direction: "up",
               ),
             ),
           ]),
