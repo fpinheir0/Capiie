@@ -1,7 +1,11 @@
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:capiie/modules/pages/bloc/cadastro_bloc.dart';
+import 'package:capiie/modules/pages/bloc/cadastro_event.dart';
+import 'package:capiie/modules/pages/bloc/cadastro_state.dart';
 import 'package:capiie/modules/pages/page5.dart';
 import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class page4 extends StatefulWidget {
   @override
@@ -10,24 +14,13 @@ class page4 extends StatefulWidget {
 
 class _page4State extends State<page4> {
   final int delayedAmount = 500;
-
-  TextEditingController _email = TextEditingController();
+  final GlobalKey _formkey = GlobalKey();
 
   bool texterror = false;
 
-  void Salvar() {
-    // ignore: unused_local_variable
-    String email;
-
-    setState(() {
-      email = _email.text;
-
-      Navigator.push(context, MaterialPageRoute(builder: (context) => page5()));
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    var bloc = BlocProvider.of<cadastroBloc>(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFF8185E2),
@@ -79,14 +72,20 @@ class _page4State extends State<page4> {
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
-                    child: TextFormField(
-                      controller: _email,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Email',
-                          errorText: texterror
-                              ? "Por favor insira o email correto!"
-                              : null),
+                    child: BlocBuilder<cadastroBloc, CadastroPageState>(
+                      bloc: bloc,
+                      builder: (context, state) {
+                        return TextFormField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Nome',
+                              errorText: texterror
+                                  ? "Por favor insira o nome!"
+                                  : null),
+                          onChanged: (Email) =>
+                              bloc.add(CadastroEventUpdate(Email)),
+                        );
+                      },
                     ),
                     delay: 2000,
                     direction: 'up'),
@@ -102,18 +101,8 @@ class _page4State extends State<page4> {
               DelayedAnimation(
                   child: GestureDetector(
                     onTap: () {
-                      if (_email.text.isEmpty ||
-                          !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                              .hasMatch(_email.text)) {
-                        setState(() {
-                          texterror = true;
-                        });
-                      } else {
-                        setState(() {
-                          texterror = false;
-                          Salvar();
-                        });
-                      }
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => page5()));
                     },
                     child: _animatedButtonUI,
                   ),
