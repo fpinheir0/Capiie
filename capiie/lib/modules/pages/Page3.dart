@@ -103,7 +103,7 @@ class _page3State extends State<page3> with SingleTickerProviderStateMixin {
                             errorText:
                                 texterror ? "Por favor insira o nome!" : null),
                         onChanged: (Cargo) =>
-                            bloc.add(CadastroEventUpdate(Cargo)),
+                            bloc.add(CadastroEventUpdate(Cargo: Cargo)),
                       );
                     },
                   ),

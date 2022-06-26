@@ -83,7 +83,7 @@ class _page4State extends State<page4> {
                                   ? "Por favor insira o nome!"
                                   : null),
                           onChanged: (Email) =>
-                              bloc.add(CadastroEventUpdate(Email)),
+                              bloc.add(CadastroEventUpdate(Email: Email)),
                         );
                       },
                     ),
