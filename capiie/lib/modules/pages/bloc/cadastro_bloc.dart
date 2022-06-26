@@ -27,11 +27,11 @@ class cadastroBloc extends Bloc<CadastroEvent, CadastroPageState> {
   Cadastro get cadastro => _cadastro;
 
   _updateCadastro({
-    required String Nome,
-    required String Cargo,
-    required String Email,
-    required int Telefone,
-    required String Image,
+    String? Nome,
+    String? Cargo,
+    String? Email,
+    int? Telefone,
+    String? Image,
   }) {
     _cadastro = _cadastro.copyWith(
       Nome: Nome,
