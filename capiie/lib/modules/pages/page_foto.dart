@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:avatar_glow/avatar_glow.dart';
-import 'package:capiie/modules/pages/page_resumo.dart';
+import 'package:capiie/modules/pages/page_register.dart';
 import 'package:capiie/modules/pages/preview_page.dart';
 import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:capiie/widgtes/anexo.dart';
@@ -120,7 +120,7 @@ class _pageFoto extends State<pageFoto> {
                       Navigator.push(
                         context,
                         PageTransition(
-                          child: PageResumo(),
+                          child: RegisterResumoPage(),
                           type: PageTransitionType.rightToLeft,
                           alignment: Alignment.center,
                           duration: Duration(milliseconds: 1000),

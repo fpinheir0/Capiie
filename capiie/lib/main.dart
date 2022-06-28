@@ -1,11 +1,5 @@
-import 'package:capiie/modules/login/login_page.dart';
-import 'package:capiie/modules/pages/bloc/cadastro_bloc.dart';
-import 'package:capiie/modules/pages/bloc/cadastro_event.dart';
-import 'package:capiie/modules/pages/bloc/cadastro_state.dart';
-import 'package:capiie/modules/pages/page_resumo.dart';
-import 'package:capiie/modules/pages/resumo_cadastro.dart';
+import 'package:capiie/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,10 +15,8 @@ class MyApp extends StatelessWidget {
       title: 'Capiie Totem',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      home: BlocProvider<cadastroBloc>(
-        create: (BuildContext context) => cadastroBloc(),
-        child: LoginPage(),
-      ),
+      initialRoute: '/',
+      onGenerateRoute: AppRoutes.routes,
     );
   }
 }
