@@ -1,4 +1,4 @@
-import 'package:capiie/app_routes.dart';
+import 'package:capiie/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
