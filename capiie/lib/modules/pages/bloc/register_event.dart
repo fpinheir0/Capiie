@@ -23,4 +23,6 @@ class RegisterUpdate extends RegisterEvent {
 
 class RegisterNextPage extends RegisterEvent {}
 
+class RegisterPreviousPage extends RegisterEvent {}
+
 class RegisterCompletedEvent extends RegisterEvent {}
