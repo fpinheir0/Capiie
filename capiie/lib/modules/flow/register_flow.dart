@@ -1,9 +1,9 @@
 import 'package:capiie/modules/pages/bloc/register_bloc.dart';
 import 'package:capiie/modules/pages/bloc/registro_state.dart';
-import 'package:capiie/modules/pages/register_cargo_page.dart';
-import 'package:capiie/modules/pages/register_email_page.dart';
-import 'package:capiie/modules/pages/register_name_page.dart';
-import 'package:capiie/modules/pages/register_telefone_page.dart';
+import 'package:capiie/modules/pages/views/register_cargo_page.dart';
+import 'package:capiie/modules/pages/views/register_email_page.dart';
+import 'package:capiie/modules/pages/views/register_name_page.dart';
+import 'package:capiie/modules/pages/views/register_telefone_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,6 +26,7 @@ class RegisterFlow extends StatelessWidget {
           return Navigator(
             pages: pages(bloc, state),
             onPopPage: (route, result) {
+              bloc.previousPage();
               return route.didPop(result);
             },
           );
@@ -55,6 +56,9 @@ class RegisterFlow extends StatelessWidget {
     }
 
     if (state is RegisterTelefonePageState) {
+      list.addAll([namePage, cargoPage, emailPage, telefonePage]);
+    }
+    if (state is RegisterResumoPageState) {
       list.addAll([namePage, cargoPage, emailPage, telefonePage]);
     }
     return list;
