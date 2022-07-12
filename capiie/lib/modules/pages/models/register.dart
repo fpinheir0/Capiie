@@ -4,7 +4,7 @@ class Register extends Equatable {
   final String nome;
   final String cargo;
   final String email;
-  final int telefone;
+  final String telefone;
 
   Register({
     required this.nome,
@@ -14,10 +14,24 @@ class Register extends Equatable {
   });
 
   Register.empty(
-      {this.nome = "", this.cargo = "", this.email = "", this.telefone = 0});
+      {this.nome = "", this.cargo = "", this.email = "", this.telefone = ""});
 
   @override
   List<Object?> get props => [nome, cargo, email, telefone];
+
+  Register copyWith({
+    required String Nome,
+    required String Cargo,
+    required String Email,
+    required String Telefone,
+  }) {
+    return Register(
+      nome: nome,
+      cargo: cargo,
+      email: email,
+      telefone: telefone,
+    );
+  }
 
   @override
   bool get stringify => true;

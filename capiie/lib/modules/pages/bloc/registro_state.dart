@@ -39,7 +39,7 @@ class RegisterEmailPageState extends RegisterState {
 
 //TELEFONE
 class RegisterTelefonePageState extends RegisterState {
-  final int telefone;
+  final String telefone;
 
   RegisterTelefonePageState({required this.telefone});
 

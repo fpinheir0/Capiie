@@ -11,7 +11,7 @@ class RegisterUpdate extends RegisterEvent {
   final String Nome;
   final String Cargo;
   final String Email;
-  final int Telefone;
+  final String Telefone;
 
   RegisterUpdate({
     required this.Nome,
