@@ -24,9 +24,36 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       yield _previousPage();
     }
 
+    if (event is RegisterUpdate) {
+      _updateRegister(event);
+    }
+
     if (event is RegisterCompletedEvent) {
       yield _completeFlow();
     }
+  }
+
+  _updateRegister(RegisterUpdate event) {
+    _register = _register.copyWith(
+      Nome: event.Nome,
+      Cargo: event.Cargo,
+      Email: event.Email,
+      Telefone: event.Telefone,
+    );
+  }
+
+  void updateRegister({
+    String? Nome,
+    String? Cargo,
+    String? Email,
+    String? Telefone,
+  }) {
+    this.add(RegisterUpdate(
+      Nome: Nome.toString(),
+      Cargo: Cargo.toString(),
+      Email: Email.toString(),
+      Telefone: Telefone.toString(),
+    ));
   }
 
   void complete() {
