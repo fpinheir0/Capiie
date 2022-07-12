@@ -128,7 +128,7 @@ class _pageFoto extends State<pageFoto> {
                         ),
                       ),
                     },
-                    child: _animatedButtonUI,
+                    // child: _animatedButtonUI,
                   ),
                   delay: 3000,
                   direction: 'up'),
@@ -139,22 +139,22 @@ class _pageFoto extends State<pageFoto> {
     );
   }
 
-  Widget get _animatedButtonUI => Container(
-        height: 60,
-        width: 270,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100.0),
-          color: Colors.white,
-        ),
-        child: Center(
-          child: Text(
-            'CONTINUE',
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF8185E2),
-            ),
-          ),
-        ),
-      );
+  // Widget get _animatedButtonUI => Container(
+  //       height: 60,
+  //       width: 270,
+  //       decoration: BoxDecoration(
+  //         borderRadius: BorderRadius.circular(100.0),
+  //         color: Colors.white,
+  //       ),
+  //       child: Center(
+  //         child: Text(
+  //           'CONTINUE',
+  //           style: TextStyle(
+  //             fontSize: 20.0,
+  //             fontWeight: FontWeight.bold,
+  //             color: Color(0xFF8185E2),
+  //           ),
+  //         ),
+  //       ),
+  //     );
 }
