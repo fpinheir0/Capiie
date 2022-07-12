@@ -74,12 +74,15 @@ class _RegisterTelefonePageState extends State<RegisterTelefonePage> {
                 padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
+                      onChanged: (Telefone) =>
+                          bloc.updateRegister(Telefone: Telefone),
                       controller: TextEditingController(text: widget.telefone),
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          labelText: 'Nome',
-                          errorText:
-                              texterror ? "Por favor insira o nome!" : null),
+                          labelText: 'Telefone',
+                          errorText: texterror
+                              ? "Por favor insira o Telefone!"
+                              : null),
                     ),
                     delay: 3000,
                     direction: 'up'),

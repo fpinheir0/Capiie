@@ -74,6 +74,7 @@ class _RegisterNamePageState extends State<RegisterNamePage> {
                 padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
+                      onChanged: (Nome) => bloc.updateRegister(Nome: Nome),
                       controller: TextEditingController(text: widget.nome),
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),

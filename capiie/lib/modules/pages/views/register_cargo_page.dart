@@ -21,6 +21,7 @@ class _RegisterCargoPageState extends State<RegisterCargoPage> {
 
   @override
   Widget build(BuildContext context) {
+    var bloc = BlocProvider.of<RegisterBloc>(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFF8185E2),
@@ -87,6 +88,7 @@ class _RegisterCargoPageState extends State<RegisterCargoPage> {
                 padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                   child: TextFormField(
+                    onChanged: (Cargo) => bloc.updateRegister(Cargo: Cargo),
                     controller: TextEditingController(text: widget.cargo),
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),

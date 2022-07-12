@@ -20,6 +20,7 @@ class _RegisterEmailPageState extends State<RegisterEmailPage> {
   bool texterror = false;
   @override
   Widget build(BuildContext context) {
+    var bloc = BlocProvider.of<RegisterBloc>(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFF8185E2),
@@ -72,6 +73,7 @@ class _RegisterEmailPageState extends State<RegisterEmailPage> {
                 padding: EdgeInsets.all(8.0),
                 child: DelayedAnimation(
                     child: TextFormField(
+                      onChanged: (Email) => bloc.updateRegister(Email: Email),
                       controller: TextEditingController(text: widget.email),
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
