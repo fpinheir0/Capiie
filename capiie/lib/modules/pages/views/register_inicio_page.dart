@@ -1,12 +1,14 @@
-import 'package:capiie/modules/pages/views/register_name_page.dart';
+import 'package:capiie/modules/pages/bloc/register_bloc.dart';
 import 'package:capiie/utilidades/delayed_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:avatar_glow/avatar_glow.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterInicioPage extends StatefulWidget {
+  static const String route = "/";
   @override
   _RegisterInicioPageState createState() => _RegisterInicioPageState();
+  static Page<dynamic> page() => MaterialPage(child: RegisterInicioPage());
 }
 
 class _RegisterInicioPageState extends State<RegisterInicioPage>
@@ -20,6 +22,7 @@ class _RegisterInicioPageState extends State<RegisterInicioPage>
 
   @override
   Widget build(BuildContext context) {
+    var bloc = BlocProvider.of<RegisterBloc>(context);
     //   _scale = 1 - _controller.value;
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -80,21 +83,11 @@ class _RegisterInicioPageState extends State<RegisterInicioPage>
                 ),
               ),
               DelayedAnimation(
-                  child: GestureDetector(
-                    onTap: () => {
-                      Navigator.push(
-                        context,
-                        PageTransition(
-                          child: RegisterNamePage(nome: ""),
-                          type: PageTransitionType.rightToLeft,
-                          alignment: Alignment.center,
-                          duration: Duration(milliseconds: 1000),
-                          reverseDuration: Duration(milliseconds: 1000),
-                        ),
-                      ),
-                    },
-                    child: _animatedButtonUI,
-                  ),
+                  child: FloatingActionButton(
+                      child: Icon(Icons.chevron_right),
+                      onPressed: () {
+                        bloc.nextPage();
+                      }),
                   delay: 4000,
                   direction: 'up'),
             ],
@@ -103,23 +96,4 @@ class _RegisterInicioPageState extends State<RegisterInicioPage>
       ),
     );
   }
-
-  Widget get _animatedButtonUI => Container(
-        height: 60,
-        width: 270,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100.0),
-          color: Colors.white,
-        ),
-        child: Center(
-          child: Text(
-            'CONTINUE',
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF8185E2),
-            ),
-          ),
-        ),
-      );
 }

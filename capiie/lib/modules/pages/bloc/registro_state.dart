@@ -7,6 +7,14 @@ abstract class RegisterState extends Equatable {
   List<Object?> get props => [];
 }
 
+//INICIO
+class RegisterInicioPageState extends RegisterState {
+  RegisterInicioPageState();
+
+  @override
+  List<Object?> get props => [];
+}
+
 //NOME
 class RegisterNamePageState extends RegisterState {
   final String nome;

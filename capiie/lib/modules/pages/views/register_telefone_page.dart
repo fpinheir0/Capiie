@@ -76,7 +76,6 @@ class _RegisterTelefonePageState extends State<RegisterTelefonePage> {
                     child: TextFormField(
                       onChanged: (Telefone) =>
                           bloc.updateRegister(Telefone: Telefone),
-                      controller: TextEditingController(text: widget.telefone),
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Telefone',

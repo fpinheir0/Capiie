@@ -89,7 +89,6 @@ class _RegisterCargoPageState extends State<RegisterCargoPage> {
                 child: DelayedAnimation(
                   child: TextFormField(
                     onChanged: (Cargo) => bloc.updateRegister(Cargo: Cargo),
-                    controller: TextEditingController(text: widget.cargo),
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Cargo',

@@ -58,9 +58,9 @@ class RegisterFlow extends StatelessWidget {
     if (state is RegisterTelefonePageState) {
       list.addAll([namePage, cargoPage, emailPage, telefonePage]);
     }
-    if (state is RegisterResumoPageState) {
-      list.addAll([namePage, cargoPage, emailPage, telefonePage]);
-    }
+    // if (state is RegisterResumoPageState) {
+    //   list.addAll([namePage, cargoPage, emailPage, telefonePage]);
+    // }
     return list;
   }
 }

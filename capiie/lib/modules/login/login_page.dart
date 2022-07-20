@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
-  static const String route = "/";
   static const String _title = 'Eai? Bora criar um cartão virtual?';
 
   @override

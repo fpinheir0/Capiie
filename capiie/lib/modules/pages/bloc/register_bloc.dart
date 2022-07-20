@@ -72,6 +72,9 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     var nextState;
     _previousState = state;
     switch (state.runtimeType) {
+      case RegisterInicioPageState:
+        nextState = RegisterNamePageState(nome: _register.nome);
+        break;
       case RegisterNamePageState:
         nextState = RegisterCargoPageState(cargo: _register.cargo);
         break;

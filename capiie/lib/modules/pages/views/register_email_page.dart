@@ -74,7 +74,6 @@ class _RegisterEmailPageState extends State<RegisterEmailPage> {
                 child: DelayedAnimation(
                     child: TextFormField(
                       onChanged: (Email) => bloc.updateRegister(Email: Email),
-                      controller: TextEditingController(text: widget.email),
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Email',
